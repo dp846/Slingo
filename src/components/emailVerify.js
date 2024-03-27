@@ -57,7 +57,7 @@ export default function EmailVerify() {
                     {validUrl ? (
                         <div className={EmailVerifyCSS["login-form"]}>
                             <h4 className={EmailVerifyCSS["login-header"]}>Email verified successfully</h4>
-                            <Link to="/login">
+                            <Link to="./login">
                                 <button className={EmailVerifyCSS["login-button"]}>Login</button>
                             </Link>
                         </div>
