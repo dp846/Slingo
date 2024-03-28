@@ -11,7 +11,7 @@ export default function Navbar() {
     localStorage.removeItem("token");
     localStorage.removeItem("name");
     localStorage.removeItem("was_visited")
-    window.location = "/";
+    window.location = "Slingo";
   };
 
   return (

@@ -23,8 +23,8 @@ const App = () => {
 	return (
 		<div>
 			<Routes>
-				<Route path="Slingo" element={<InHome />} />
-				<Route exact path="home" element={<Home />}/>
+				<Route path="home" element={<InHome />} />
+				<Route exact path="Slingo" element={<Home />}/>
 				<Route path="login" element={<Login />}/>
 				<Route path="signup" element={<Signup />}/>
 				{/* <Route path="users/:id/verify/:token" element={<EmailVerify />}/> */}

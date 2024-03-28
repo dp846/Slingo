@@ -18,7 +18,7 @@ return (
     <div className={tutorialCSS.video}>
         <video src={video2} width={800} height={600} autoPlay={true} muted loop={true}></video>
     </div>
-    <button onClick={() => navigate("/")}>Continue</button>
+    <button onClick={() => navigate("../home")}>Continue</button>
 </div>
 
 )
