@@ -18,18 +18,15 @@ import Tutorial from "./components/tutorial";
 import LearnInteractive from "./components/learnInteractive";
 
 const App = () => {
-	// const user = localStorage.getItem("token");
-
 	return (
 		<div>
 			<Routes>
-				<Route path="Slingo" element={<InHome />} />
-				<Route path="home" element={<Home />}/>
+				<Route exact path="/" element={<Home />} />
+				<Route path="Slingo" element={<Home />}/>
+				<Route path="home" element={<InHome />} />
 				<Route path="login" element={<Login />}/>
 				<Route path="signup" element={<Signup />}/>
-				{/* <Route path="users/:id/verify/:token" element={<EmailVerify />}/> */}
 				<Route path="forgot-password" element={<ForgotPassword />}/>
-				{/* <Route path="password-reset/:id/:token" element={<PasswordReset />}/> */}
 				<Route path="tutorial" element={<Tutorial/>}/>
 				<Route path="learn" element={<Learn />}/>
 				<Route path="learnSign" element={<LearnSign />}/>
