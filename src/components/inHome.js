@@ -8,14 +8,15 @@ export default function InHome() {
   const name = localStorage.getItem("name");
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (localStorage.getItem('was_visited')){
-      return;
-    }
-    localStorage.setItem('was_visited', 1)
-    return(navigate("/tutorial"))
+  // Remove tutorial for demo purposes
 
-  })
+  // useEffect(() => {
+  //   if (localStorage.getItem('was_visited')){
+  //     return;
+  //   }
+  //   localStorage.setItem('was_visited', 1)
+  //   return(navigate("/tutorial"))
+  // })
 
   return (
     <div className={InHomeCSS.container}>
