@@ -10,8 +10,9 @@ export default function Home() {
         <nav className={HomeCSS.navbar}>
           <div className={HomeCSS["navbar-container"]}>
             <div className={HomeCSS["navbar-right"]}>
-              <button onClick={() => navigate("/login")} className={HomeCSS["navbar-button-login"]}>Login</button>
+              <button onClick={() => navigate("/home")} className={HomeCSS["navbar-button-home"]}>Home</button>
               <button onClick={() => navigate("/signup")}className={HomeCSS["navbar-button-signup"]}>Signup</button>
+              <button onClick={() => navigate("/login")} className={HomeCSS["navbar-button-login"]}>Login</button>
             </div>
           </div>
         </nav>
