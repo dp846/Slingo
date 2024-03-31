@@ -18,7 +18,11 @@ return (
     <div className={tutorialCSS.video}>
         <video src={video2} width={800} height={600} autoPlay={true} muted loop={true}></video>
     </div>
+<<<<<<< HEAD
     <button onClick={() => navigate("/Slingo")}>Continue</button>
+=======
+    <button onClick={() => navigate("../home")}>Continue</button>
+>>>>>>> 97b673b9b275c7f429f4e7a7de7b419cdd84a2a5
 </div>
 
 )
