@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Slingo/static/css/main.2ebf4be4.css",
-    "main.js": "/Slingo/static/js/main.48619b1b.js",
+    "main.css": "/Slingo/static/css/main.3db87f9e.css",
+    "main.js": "/Slingo/static/js/main.37ee42b3.js",
     "static/media/slingo.mp4": "/Slingo/static/media/slingo.3b748b8febeaab375e97.mp4",
     "static/media/brother.jpg": "/Slingo/static/media/brother.1b8890f7f0c7c40ccadd.jpg",
     "static/media/thanks.jpg": "/Slingo/static/media/thanks.d5e3d0eefa4d71db728b.jpg",
@@ -26,11 +26,11 @@
     "static/media/luck.jpg": "/Slingo/static/media/luck.bbaf07b9d779b887cfa1.jpg",
     "static/media/name.jpg": "/Slingo/static/media/name.fd275d411d49a054e196.jpg",
     "index.html": "/Slingo/index.html",
-    "main.2ebf4be4.css.map": "/Slingo/static/css/main.2ebf4be4.css.map",
-    "main.48619b1b.js.map": "/Slingo/static/js/main.48619b1b.js.map"
+    "main.3db87f9e.css.map": "/Slingo/static/css/main.3db87f9e.css.map",
+    "main.37ee42b3.js.map": "/Slingo/static/js/main.37ee42b3.js.map"
   },
   "entrypoints": [
-    "static/css/main.2ebf4be4.css",
-    "static/js/main.48619b1b.js"
+    "static/css/main.3db87f9e.css",
+    "static/js/main.37ee42b3.js"
   ]
 }
