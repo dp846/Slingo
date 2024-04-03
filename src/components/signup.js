@@ -136,7 +136,7 @@ export default function Signup() {
               fill="#868686"
             />
           </svg>
-          <a href="/auth/google" className={SignupCSS["continue-with-google-button"]}>
+          <a className={SignupCSS["continue-with-google-button"]}>
             <svg
               width="406"
               height="80"

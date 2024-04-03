@@ -123,7 +123,7 @@ export default function Login() {
               fill="#868686"
             />
           </svg>
-          <a href="/auth/google" className={LoginCSS["continue-with-google-button"]}>
+          <a className={LoginCSS["continue-with-google-button"]}>
             <svg
               width="406"
               height="80"

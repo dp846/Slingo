@@ -1,8 +1,7 @@
-import { React, useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import learnSignCSS from "../css/learnSign.module.css";
 import Navbar from "./navbar";
-import axios from "axios";
 import father from "./family/father.jpg";
 import mother from "./family/mother.jpg";
 import son from "./family/son.jpg";
@@ -16,101 +15,65 @@ import my from "./family/my.jpg";
 import your from "./family/your.jpg";
 
 export default function LearnSign2() {
-	const navigate = useNavigate();
+    const navigate = useNavigate();
 
-	// Retrieving course details
-	const [loading, setLoading] = useState(true);
-	const [signs, setSigns] = useState([]);
-	const [signId, setSignId] = useState("");
+    // Static data for family signs
+    const familySigns = [
+        { name: "Father", description: "Two finger on each hand in a cross formation", src: father },
+        { name: "Mother", description: "Three fingers touching the palm of an open hand", src: mother },
+        { name: "Son", description: "Pointing motion at chin level", src: son },
+        { name: "Daughter", description: "Making a D shape with both hands", src: daughter },
+        { name: "Brother", description: "Two fists side by side", src: brother },
+        { name: "Sister", description: "A hooked index finger at head level", src: sister },
+        { name: "Step", description: "Touching the pinky finger of one hand", src: step },
+        { name: "Baby", description: "The shape hands make when holding a baby", src: baby },
+        { name: "Home", description: "Hands resembling the shape of a house roof", src: home },
+        { name: "My", description: "A closed fist touching the chest", src: my },
+        { name: "Your", description: "An open hand with curled fingers pointing forward", src: your }
+    ];
 
-	useEffect(() => {
-		const retrieveSignsAndSetSign = async () => {
-			try {
-				const url = `http://localhost:8080/api/courses/family`;
-				const { data: res } = await axios.get(url);
-				setSigns(res.course.signs);
-				setSignId(res.course.signs[0]._id);
-				setLoading(false);
-			} catch (error) {
-				console.log(error);
-			}
-		};
-		retrieveSignsAndSetSign();
-	}, []);
+    const [currentIndex, setCurrentIndex] = useState(0);
 
-	const userId = localStorage.getItem("userid");
-	const [currentIndex, setCurrentIndex] = useState(0);
-	
-	useEffect(() => {
-		const updateProgress = async () => {
-			try {
-				const url = `http://localhost:8080/api/progress/${userId}/${signId}`;
-				await axios.post(url);
-			} catch (error) {
-				console.log(error);
-			}
-		};
-		updateProgress();
-	}, [currentIndex]);
+    function handleNextClick() {
+        const nextIndex = (currentIndex + 1) % familySigns.length;
+        setCurrentIndex(nextIndex);
+    }
 
-	const images = [
-		{ src: father, alt: "Father" },
-		{ src: mother, alt: "Mother" },
-		{ src: son, alt: "Son" },
-		{ src: daughter, alt: "Daughter" },
-		{ src: brother, alt: "Brother" },
-		{ src: sister, alt: "Sister" },
-		{ src: step, alt: "Step" },
-		{ src: baby, alt: "Baby" },
-		{ src: home, alt: "Home" },
-		{ src: my, alt: "My" },
-		{ src: your, alt: "Your" },
-	];
+    function handlePrevClick() {
+        const prevIndex = currentIndex === 0 ? familySigns.length - 1 : currentIndex - 1;
+        setCurrentIndex(prevIndex);
+    }
 
-	function handleNextClick() {
-		const nextIndex = (currentIndex + 1) % images.length;
-		setCurrentIndex(nextIndex);
-		setSignId(signs[nextIndex]._id);
-	}
-
-	function handlePrevClick() {
-		const prevIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
-		setCurrentIndex(prevIndex);
-		setSignId(signs[prevIndex]._id);
-	}
-
-	if (!loading) {
-		return (
-			<div className={learnSignCSS.container}>
-				<Navbar />
-				<div className={learnSignCSS.content}>
-					<h1 className={learnSignCSS.title}>{signs[currentIndex]["name"]}</h1>
-					<div className={learnSignCSS["slide-show"]}>
-						<button
-							className={learnSignCSS.previous}
-							onClick={handlePrevClick}
-						>
-							Previous
-						</button>
-						<img
-							src={images[currentIndex].src}
-							alt={images[currentIndex].alt}
-						/>
-						<button
-							className={learnSignCSS.next}
-							onClick={handleNextClick}
-						>
-							Next
-						</button>
-					</div>
-					<p className={learnSignCSS.description}>
-						{signs[currentIndex]["description"]}
-					</p>
-					<button onClick={() => navigate("/learn")} className={learnSignCSS["leave-button"]}>
-						Leave session
-					</button>
-				</div>
-			</div>
-		);
-	}
+    return (
+        <div className={learnSignCSS.container}>
+            <Navbar />
+            <div className={learnSignCSS.content}>
+                <h1 className={learnSignCSS.title}>{familySigns[currentIndex].name}</h1>
+                <div className={learnSignCSS["slide-show"]}>
+                    <button
+                        className={learnSignCSS.previous}
+                        onClick={handlePrevClick}
+                    >
+                        Previous
+                    </button>
+                    <img
+                        src={familySigns[currentIndex].src}
+                        alt={familySigns[currentIndex].name}
+                    />
+                    <button
+                        className={learnSignCSS.next}
+                        onClick={handleNextClick}
+                    >
+                        Next
+                    </button>
+                </div>
+                <p className={learnSignCSS.description}>
+                    {familySigns[currentIndex].description}
+                </p>
+                <button onClick={() => navigate("/learn")} className={learnSignCSS["leave-button"]}>
+                    Leave session
+                </button>
+            </div>
+        </div>
+    );
 }

@@ -11,21 +11,21 @@ import learnCSS from "../css/learn.module.css"
 export default function Learn() {
     const navigate = useNavigate();
 
-    const [progress, setProgress] = useState(0);
-    const userId = localStorage.getItem("userid");
+    // const [progress, setProgress] = useState(0);
+    // const userId = localStorage.getItem("userid");
 
-    useEffect(() => {
-        const retrieveProgress = async () => {
-            try {
-                const url = `http://localhost:8080/api/progress/${userId}`;
-                const { data: res } = await axios.get(url);
-                setProgress(Math.round(res.overallProgress / 22 * 100));
-            } catch (error) {
-                console.log(error);
-            }
-        };
-        retrieveProgress();
-    }, []);
+    // useEffect(() => {
+    //     const retrieveProgress = async () => {
+    //         try {
+    //             const url = `http://localhost:8080/api/progress/${userId}`;
+    //             const { data: res } = await axios.get(url);
+    //             setProgress(Math.round(res.overallProgress / 22 * 100));
+    //         } catch (error) {
+    //             console.log(error);
+    //         }
+    //     };
+    //     retrieveProgress();
+    // }, []);
 
     const [greetingsModalIsOpen, setGreetingsModalIsOpen] = useState(false);
     const [familyModalIsOpen, setFamilyModalIsOpen] = useState(false);
@@ -57,9 +57,8 @@ export default function Learn() {
                 <div className={learnCSS["progress-bar"]}>
                 <ProgressBar
                     width = {600}
-                    height = {18}
-                    text = {`${progress}% progress`}
-                    percent = {progress} 
+                    height = {36}
+                    percent = {30}
                 />
                 </div>
             </div>
@@ -76,10 +75,10 @@ export default function Learn() {
                 >
                 Family
                 </button>
-                <button className={learnCSS["numbers-button"]}>Basic Numbers</button>
-                <button className={learnCSS["weather-button"]}>Weather</button>
-                <button className={learnCSS["travel-button"]}>Travel and Transport</button>
-                <button className={learnCSS["directions-button"]}>Giving Directions</button>
+                <button className={learnCSS["unselectable-button"]}>Basic Numbers<br></br><br></br>Coming soon!</button>
+                <button className={learnCSS["unselectable-button"]}>Weather<br></br><br></br>Coming soon!</button>
+                <button className={learnCSS["unselectable-button"]}>Travel and Transport<br></br><br></br>Coming soon!</button>
+                <button className={learnCSS["unselectable-button"]}>Giving Directions<br></br><br></br>Coming soon!</button>
             </div>
 
             <Modal
@@ -87,6 +86,7 @@ export default function Learn() {
                 onRequestClose={handleCloseGreetingsModal}
                 contentLabel="Greetings Modal"
                 className={learnCSS["modal-container"]}
+                ariaHideApp={false}
             >
                 <button
                 className={learnCSS["close-button"]}
@@ -112,6 +112,7 @@ export default function Learn() {
                 onRequestClose={handleCloseFamilyModal}
                 contentLabel="Family Modal"
                 className={learnCSS["modal-container"]}
+                ariaHideApp={false}
             >
                 <button
                 className={learnCSS["close-button"]}

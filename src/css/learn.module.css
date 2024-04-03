@@ -50,7 +50,7 @@
   width: 5%;
   height: 300px;
   color: #ffffff;
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 700;
   text-align: center;
   padding: 120px 0;
@@ -62,6 +62,11 @@
 
 .navigation-buttons button:hover {
   background-color: #d15621;
+}
+
+.navigation-buttons .unselectable-button {
+  pointer-events: none;
+  background-color: #6d6d6d;
 }
 
 .modal-container {
