@@ -113,6 +113,30 @@
   border: 2px solid #ffffff;
 }
 
+.navbar-button-return-home {
+  height: 51px;
+  width: 140px;
+  text-align: center;
+
+  margin-left: 36px;
+  margin-right: 36px;
+  margin-top: 24px;
+  background-color: #ff6c2d;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.navbar-button-return-home:hover {
+  background-color: #ffffff;
+  color: #ff6c2d;
+  border: 2px solid #ffffff;
+}
+
 .container-1 {
   display: flex;
   flex-direction: column;

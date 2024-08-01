@@ -23,6 +23,11 @@
   flex-direction: row;
   align-items: center;
   margin-left: 80px;
+  cursor: pointer;
+}
+
+.brand-section:hover {
+  transform: scale(1.05);
 }
 
 .brand-logo {

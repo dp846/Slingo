@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
+import HomeCSS from "../css/home.module.css";
 import SignupCSS from "../css/signup.module.css";
 
 export default function Signup() {
@@ -11,11 +13,12 @@ export default function Signup() {
   });
   const [error, setError] = useState("");
   const [msg, setMsg] = useState("");
+  const navigate = useNavigate();
 
   // These methods will update the state properties
   function updateForm(value) {
     return setData((prev) => {
-        return { ...prev, ...value };
+      return { ...prev, ...value };
     });
   }
 
@@ -36,12 +39,13 @@ export default function Signup() {
         setError(error.response.data.message);
         setMsg("");
       }
-    }   
+    }
   }
 
   // This section will display the form that takes the input from the user
   return (
     <div className={SignupCSS.container}>
+
       <div className={SignupCSS["container-1"]}>
         <div className={SignupCSS["sub-container-1"]}>
           <svg
@@ -70,7 +74,10 @@ export default function Signup() {
         </div>
       </div>
       <div className={SignupCSS["sub-container-2"]}>
-        <h1 className={SignupCSS["signup-header"]}>Signup</h1>
+
+        <button onClick={() => navigate("/home")} className={HomeCSS["navbar-button-return-home"]}>Return Home</button>
+
+        <h1 className={SignupCSS["signup-header"]}>Signup - <i>(disabled for demo)</i></h1>
         <form className={SignupCSS["signup-form"]} onSubmit={onSubmit}>
           <div>
             <label className={SignupCSS["signup-form-label"]} htmlFor="name">
@@ -112,15 +119,10 @@ export default function Signup() {
             />
           </div>
           {error && <div>{error}</div>}
-					{msg && <div>{msg}</div>}
+          {msg && <div>{msg}</div>}
           <button className={SignupCSS["create-account-button"]} type="submit">
             Create Account
           </button>
-          <div className={SignupCSS["link-to-login"]}>
-            <p>
-              Already a user? <a href="/login">Login</a>
-            </p>
-          </div>
           <svg
             width="690"
             height="14"

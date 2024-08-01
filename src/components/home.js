@@ -11,7 +11,7 @@ export default function Home() {
           <div className={HomeCSS["navbar-container"]}>
             <div className={HomeCSS["navbar-right"]}>
               <button onClick={() => navigate("/home")} className={HomeCSS["navbar-button-home"]}>Home</button>
-              <button onClick={() => navigate("/signup")}className={HomeCSS["navbar-button-signup"]}>Signup</button>
+              <button onClick={() => navigate("/signup")} className={HomeCSS["navbar-button-signup"]}>Signup</button>
               <button onClick={() => navigate("/login")} className={HomeCSS["navbar-button-login"]}>Login</button>
             </div>
           </div>
@@ -37,7 +37,7 @@ export default function Home() {
             <div className={HomeCSS["sub-container-content"]}>
               <h1>What is Slingo?</h1>
               <p>
-                Slingo is a web application where learning and translating sign
+                Slingo is a proof of concept for a web application where learning and translating sign
                 language is made simple and accessible. Our mission is to
                 support the deaf community by providing a platform for
                 individuals to improve their sign language skills and

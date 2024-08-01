@@ -6,7 +6,7 @@ export default function Navbar() {
 
   const name = localStorage.getItem("name");
   const navigate = useNavigate();
-  
+
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("name");
@@ -17,7 +17,7 @@ export default function Navbar() {
   return (
     <nav className={NavbarCSS["navbar-container"]}>
       <div className={NavbarCSS["navbar-container-content"]}>
-        <div className={NavbarCSS["brand-section"]}>
+        <div className={NavbarCSS["brand-section"]} onClick={() => navigate('/Slingo')}>
           <svg
             width="150"
             height="150"
@@ -77,7 +77,7 @@ export default function Navbar() {
               </svg>
             </a>
           </div>
-          <a className={NavbarCSS["user-name"]} href="#">{name}</a>
+          <p className={NavbarCSS["user-name"]}>Guest</p>
           <a className={NavbarCSS["logout-button"]} onClick={handleLogout}>Logout</a>
         </div>
       </div>

@@ -20,10 +20,10 @@ export default function InHome() {
 
   return (
     <div className={InHomeCSS.container}>
-      <Navbar/>
+      <Navbar />
       <div className={InHomeCSS.intro}>
         <h1 className={InHomeCSS.home}>Home</h1>
-        <p className={InHomeCSS.greeting}>Hello, {name}</p>
+        <p className={InHomeCSS.greeting}>Hi there - welcome back to Slingo!</p>
       </div>
       <div className={InHomeCSS["navigation-buttons"]}>
         <button onClick={() => navigate("/learn")} className={InHomeCSS["translate-button"]}>Learn</button>

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
+import HomeCSS from "../css/home.module.css";
 import LoginCSS from "../css/login.module.css";
 
 export default function Login() {
@@ -9,11 +11,12 @@ export default function Login() {
     password: "",
   });
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   // These methods will update the state properties
   function updateForm(value) {
     return setData((prev) => {
-        return { ...prev, ...value };
+      return { ...prev, ...value };
     });
   }
 
@@ -27,7 +30,7 @@ export default function Login() {
       localStorage.setItem("token", res.token);
       localStorage.setItem("name", res.name);
       localStorage.setItem("userid", res.userId);
-      
+
       window.location = "/";
     } catch (error) {
       if (
@@ -70,7 +73,10 @@ export default function Login() {
         </div>
       </div>
       <div className={LoginCSS["sub-container-2"]}>
-        <h1 className={LoginCSS["login-header"]}>Login</h1>
+
+        <button onClick={() => navigate("/home")} className={HomeCSS["navbar-button-return-home"]}>Return Home</button>
+
+        <h1 className={LoginCSS["login-header"]}>Login - <i>(disabled for demo)</i></h1>
         <form className={LoginCSS["login-form"]} onSubmit={onSubmit}>
           <div>
             <label className={LoginCSS["login-form-label"]} htmlFor="email">
@@ -95,19 +101,11 @@ export default function Login() {
               onChange={(e) => updateForm({ password: e.target.value })}
               placeholder={"Enter your password"}
             />
-            <a className={LoginCSS["forgot-password"]} href="/forgot-password"> 
-              Forgot password?
-            </a>
           </div>
           {error && <div>{error}</div>}
           <button className={LoginCSS["login-button"]} type="submit">
             Login
           </button>
-          <div className={LoginCSS["link-to-signup"]}>
-            <p>
-              Not a user? <a href="/signup">Sign up</a>
-            </p>
-          </div>
           <svg
             width="690"
             height="14"

@@ -33,7 +33,7 @@
 .navigation-buttons {
   display: flex;
   flex-direction: row;
-  gap: 16px;
+  gap: 64px;
   margin-left: 80px;
   margin-right: 80px;
   margin-top: 80px;
@@ -42,7 +42,7 @@
 .navigation-buttons button {
   flex: 1;
   color: #ffffff;
-  font-size: 24px;
+  font-size: 34px;
   font-weight: 700;
   text-align: center;
   padding: 120px 0;
@@ -50,8 +50,10 @@
   background-color: #FF6C2D;
   border: none;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .navigation-buttons button:hover {
   background-color: #D15621;
+  transform: scale(1.05);
 }
